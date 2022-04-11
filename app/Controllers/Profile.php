@@ -13,7 +13,7 @@ class Profile extends BaseController
         return $this->loadView('components/profile', $data);
     
     }
-    public function getUserId() {
+    public function getUserId($user_id) {
         $user_id = session('user_id');  
         $user = new UserModel();
         echo json_encode($user->find($user_id));

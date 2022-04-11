@@ -101,10 +101,10 @@
         </div>
       </section>
     </div>
-  </main><!-- End #main -->
+  </main>
 
-  <!-- Template Main JS File -->
-  <script type="module" src="assets/js/register.js?v=1.0"></script>
+
+  <script type="module" src="assets/js/credential/register.js?v=1.0"></script>
 
 </body>
 

@@ -10,12 +10,13 @@ function showTab(n) {
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
-    document.getElementById("prevBtn").style.display = "inline";
+    // document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").innerHTML = "Proceed";
+    
   } else {
-    document.getElementById("nextBtn").innerHTML = 'Next <i class="bi bi-arrow-right"></i>';
+    document.getElementById("nextBtn").innerHTML = 'Next <i class="bi bi-arrow-down"></i>';
   }
 
   // ... and run a function that displays the correct step indicator:
@@ -29,14 +30,13 @@ function nextPrev(n) {
   // Exit the function if any field in the current tab is invalid:
 //   if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
-  x[currentTab].style.display = "none";
+  // x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
+    window.location.href = "/items";
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
@@ -73,3 +73,10 @@ function fixStepIndicator(n) {
   //... and adds the "active" class to the current step:
   x[n].className += " active";
 }
+
+  document.getElementById('prevBtn').addEventListener('click', (e) => {
+    nextPrev(-1);
+  })
+  document.getElementById('nextBtn').addEventListener('click', (e) => {
+    nextPrev(1);
+  })

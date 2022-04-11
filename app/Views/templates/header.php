@@ -10,28 +10,29 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/settings/hwi-logo-r.png" rel="icon">
-  <link href="assets/img/settings/hwi-logo-r.png" rel="apple-touch-icon">
+  <link href="<?=base_url()?>/assets/img/settings/hwi-logo-r.png" rel="icon">
+  <link href="<?=base_url()?>/assets/img/settings/hwi-logo-r.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/plugins/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/plugins/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/plugins/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/plugins/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/plugins/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/plugins/simple-datatables/style.css" rel="stylesheet">
-
+  <link href="<?=base_url()?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?=base_url()?>/assets/plugins/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?=base_url()?>/assets/plugins/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?=base_url()?>/assets/plugins/quill/quill.snow.css" rel="stylesheet">
+  <link href="<?=base_url()?>/assets/plugins/quill/quill.bubble.css" rel="stylesheet">
+  <link href="<?=base_url()?>/assets/plugins/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?=base_url()?>/assets/plugins/simple-datatables/style.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
+  <link href="<?=base_url()?>/assets/css/style.css" rel="stylesheet">
+  <!-- Vendor JS Files -->
+  <script src="<?=base_url()?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Scripts here -->
-  <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="<?=base_url()?>/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+  <script src="<?=base_url()?>/assets/js/whole/jquery-3.6.0.min.js"></script>
+  
 </head>
 
 <body>
@@ -41,8 +42,8 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="/" class="logo d-flex align-items-center">
-        <img src="assets/img/settings/hwi-logo-r.png" alt="">
-        <span class="d-none d-lg-block"><img src="assets/img/settings/hwi_logo.png" alt=""></span>
+        <img src="<?=base_url()?>/assets/img/settings/hwi-logo-r.png" alt="">
+        <span class="d-none d-lg-block"><img src="<?=base_url()?>/assets/img/settings/hwi_logo.png" alt=""></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -51,7 +52,7 @@
       <ul class="d-flex align-items-center">
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/avatar.png" alt="Profile" class="rounded-circle">
+            <img src="<?=base_url()?>/assets/img/avatar.png" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2" id="header_username"></span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -118,12 +119,7 @@
         </a>
         <ul id="cert-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/certificate-ventilator">
-              <i class="bi bi-journal-plus"></i><span>Create Certificate</span>
-            </a>
-          </li>
-          <li>
-            <a href="/certificate-ventilator">
+            <a href="/ventilator-lists">
               <i class="bi bi-list"></i><span>Records List</span>
             </a>
           </li>
@@ -136,12 +132,7 @@
         </a>
         <ul id="pum-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/certificate-ventilator">
-              <i class="bi bi-journal-plus"></i><span>Create Certificate</span>
-            </a>
-          </li>
-          <li>
-            <a href="/certificate-ventilator">
+            <a href="/pump-lists">
               <i class="bi bi-list"></i><span>Records List</span>
             </a>
           </li>
@@ -154,28 +145,18 @@
         </a>
         <ul id="burn-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/certificate-ventilator">
-              <i class="bi bi-journal-plus"></i><span>Create Certificate</span>
-            </a>
-          </li>
-          <li>
-            <a href="/certificate-ventilator">
+            <a href="/burner-lists">
               <i class="bi bi-list"></i><span>Records List</span>
             </a>
           </li>
 
         </ul>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#elec-nav" data-bs-toggle="collapse" href="#">
           <i class="ri-flashlight-line"></i><span>Electric Cable</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="elec-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/certificate-ventilator">
-              <i class="bi bi-journal-plus"></i><span>Create Certificate</span>
-            </a>
-          </li>
           <li>
             <a href="/certificate-ventilator">
               <i class="bi bi-list"></i><span>Records List</span>
@@ -191,11 +172,6 @@
         <ul id="edb-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/certificate-ventilator">
-              <i class="bi bi-journal-plus"></i><span>Create Certificate</span>
-            </a>
-          </li>
-          <li>
-            <a href="/certificate-ventilator">
               <i class="bi bi-list"></i><span>Records List</span>
             </a>
           </li>
@@ -207,11 +183,6 @@
           <i class="ri-vip-crown-line"></i><span>Crown Rise</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="cro-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/certificate-ventilator">
-              <i class="bi bi-journal-plus"></i><span>Create Certificate</span>
-            </a>
-          </li>
           <li>
             <a href="/certificate-ventilator">
               <i class="bi bi-list"></i><span>Records List</span>
@@ -227,16 +198,11 @@
         <ul id="safe-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/certificate-ventilator">
-              <i class="bi bi-journal-plus"></i><span>Create Certificate</span>
-            </a>
-          </li>
-          <li>
-            <a href="/certificate-ventilator">
               <i class="bi bi-list"></i><span>Records List</span>
             </a>
           </li>
 
-        </ul>
+        </ul> -->
       </li>
       <!-- End Components Nav -->
     </ul>
@@ -251,4 +217,4 @@
 }
   </style>
   <main id="main" class="main">
-  <!-- <script type="module" src="assets/js/main.js"></script> -->
+  <!-- <script type="module" src="/assets/js/main.js"></script> -->

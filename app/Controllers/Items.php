@@ -15,16 +15,22 @@ class Items extends BaseController
     }
 
     public function getItems(){ 
-        $serial = new SerialNumberModel();
+        $serial = SerialNumberModel::search( $this->request->getVar('search') );
+        
         $selectAll = $serial->select('*');
-        $serialNumber = $selectAll->join('item', 'serial_number.item_id = item.item_id', 'left');
+        $selectAll->join('item', 'serial_number.item_id = item.item_id', 'left');
 
         $data = [
-            'items' => $serialNumber->paginate(10),
-            'pager' => $serialNumber->pager->getPageCount(),
+            'items' => $selectAll->paginate(10),
+            'pager' => $selectAll->pager->getPageCount(),
         ];
 
         echo json_encode($data);
+    }   
+    public function getItemsId($serial_id) {
+        $serial= new SerialNumberModel();
+        echo json_encode($serial->find($serial_id));
     }
+   
 }
 

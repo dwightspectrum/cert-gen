@@ -85,7 +85,7 @@
   </main><!-- End #main -->
 
   <!-- Template Main JS File -->
-  <script type="module" src="assets/js/login.js?v=1.0"></script>
+  <script type="module" src="assets/js/credential/login.js?v=1.0"></script>
 
 </body>
 

@@ -52,6 +52,7 @@ class BaseController extends Controller
 
     public function loadView(string $page, array $data = null)
     {
+        
         if($data == null){
             echo view('templates/header');
             echo view($page);

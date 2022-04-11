@@ -32,14 +32,30 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
+
 $routes->get('/login', 'Login::index');
 $routes->get('/register', 'Login::register');
 $routes->get('/logout', 'Login::logout');
-$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
+
 $routes->get('/steps', 'Steps::index');
-$routes->get('/certificate-ventilator', 'Certificate::ventilator');
+
 $routes->get('/profile', 'Profile::index', ['filter' => 'auth']);
+
 $routes->get('/items', 'Items::index', ['filter' => 'auth']);
+
+$routes->get('/certificate-ventilator/(:num)', 'Certificates::ventilator/$1');
+$routes->get('/certificates/edit-ventilator/(:num)', 'Certificates::getVentilatorId/$1');
+$routes->get('/ventilator-lists', 'Certificates::listVentilatorView');
+
+$routes->get('/certificate-pump/(:num)', 'Certificates::pump/$1');
+$routes->get('/certificates/edit-pump/(:num)', 'Certificates::getPumpId/$1');
+$routes->get('/pump-lists', 'Certificates::listPumpView');
+
+$routes->get('/certificate-burner/(:num)', 'Certificates::burner/$1');
+$routes->get('/certificates/edit-burner/(:num)', 'Certificates::getBurnerId/$1');
+$routes->get('/burner-lists', 'Certificates::listBurnerView');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

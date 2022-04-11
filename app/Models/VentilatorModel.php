@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Traits\Search;
 
 class VentilatorModel extends Model
 {
+    use Search;
+
     protected $DBGroup          = 'default';
     protected $table            = 'ventilator';
     protected $primaryKey       = 'ventilator_id';
@@ -26,6 +29,7 @@ class VentilatorModel extends Model
                                     'date', 
                                     'signatures'
                                 ];
+    protected $searchable       = ['serial_no'];
 
     // Dates
     protected $useTimestamps = false;

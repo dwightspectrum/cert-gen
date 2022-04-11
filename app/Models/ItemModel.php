@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Traits\Search;
 
 class ItemModel extends Model
 {
+
+    use Search;
+
     protected $DBGroup          = 'hotware';
     protected $table            = 'item';
     protected $primaryKey       = 'item_id';
@@ -15,6 +19,7 @@ class ItemModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [];
+   
 
     // Dates
     protected $useTimestamps = false;

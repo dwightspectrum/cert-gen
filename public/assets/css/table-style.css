@@ -1,0 +1,25 @@
+.form-control:disabled, .form-control[readonly] {
+    background-color: transparent;
+    opacity: 1;
+    cursor: not-allowed;
+}
+  .table tbody, .table thead{
+    border-top: 2px solid transparent!important;
+}
+  .table thead > tr {
+    background: #111827;
+    color: white;
+}
+  .table>:not(caption)>*>* {
+    padding: 0.5rem 10.1rem;
+    background-color: var(--bs-table-bg);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+  [id-output="output"] {
+    height: 300px;
+    width: 500px;
+    margin: 30px auto;
+    background-image: url(https://via.placeholder.com/500x300);
+    background-color: #f6f9ff;
+}

@@ -149,7 +149,5 @@
         </div>
       </div>
     </section>
-    <script>
-      const user = <?=json_encode($sessData) ?>;
-    </script>
-    <script type="module" src="assets/js/profile.js?v=1.0"></script>
+   
+    <script src="<?=base_url()?>/assets/js/credential/profile.js?v=1.0"></script>

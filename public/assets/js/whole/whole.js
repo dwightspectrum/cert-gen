@@ -7,10 +7,10 @@ const userData = [
 ];
 
 async function getProfile() {
-    const res = await fetch(`Profile/getUserId/${user.user_id}`);
+    const res = await fetch(`/Profile/getUserId/${user.user_id}`);
     const data = await res.json();
 
- 
+    
     userData.forEach(personal => {
         const elem = document.querySelector(`input#${personal}`);
         if (elem) elem.value = data[personal] || ''
@@ -57,3 +57,6 @@ document.getElementById(editForm)?.addEventListener('submit', async (e) => {
         })
     }
 });
+
+
+

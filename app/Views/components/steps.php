@@ -511,8 +511,8 @@
     <div class="container text-center mt-5">
         <div class="overflow-auto">
             <div style="float:right;">
-                <button type="button" class="btn btn-primary btn-sm"id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" class="btn btn-primary btn-sm" id="nextBtn" onclick="nextPrev(1)"></button>
+                <button type="button" class="btn btn-primary btn-sm" id="prevBtn"><i class="bi bi-arrow-up"></i>Previous</button>
+                <button type="button" class="btn btn-primary btn-sm" id="nextBtn"></button>
             </div>
             <div>
                 <span class="step"></span>
@@ -605,4 +605,4 @@ input.invalid {
   background-color: #04AA6D;
 }
 </style>
-<script type="text/javascript" src="assets/js/steps.js?v=1.0"></script>
+<script type="text/javascript" src="<?=base_url()?>/assets/js/whole/steps.js?v=1.0"></script>

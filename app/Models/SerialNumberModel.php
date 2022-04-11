@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Traits\Search;
 
 class SerialNumberModel extends Model
 {
+    use Search;
+    
     protected $DBGroup          = 'hotware';
     protected $table            = 'serial_number';
     protected $primaryKey       = 'serial_number_id';
@@ -15,6 +18,7 @@ class SerialNumberModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [];
+    protected $searchable       = ['serial_number.serial_number'];
 
     // Dates
     protected $useTimestamps = false;
