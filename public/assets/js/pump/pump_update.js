@@ -1,7 +1,5 @@
 
   
-certficate();
-verify();
 
   let certificateData = JSON.parse(PUMP_ID.image_data);
   
@@ -32,6 +30,8 @@ document.querySelector(`input[data-label="l3"]`).value = parse.l3 != 'null' ? pa
 document.querySelector(`textarea[data-label="remarks"]`).value = parse.remarks != 'null' ? parse.remarks : '';
 document.querySelector(`select[data-label="safety"]`).value = parse.safety != 'null' ? parse.safety : '';
 
+certficate();
+verify();
 
 const imageData = PUMP_ID ? JSON.parse(PUMP_ID.image_data) : [];
 const verifyPlaceData = PUMP_ID ? JSON.parse(PUMP_ID.verified_place) : [];
@@ -217,8 +217,9 @@ document.querySelector(`[id-output="output"]`)
     }  
   }    
   
+  const updateButton = document.getElementById('updateButton');
   
-  document.getElementById('updateButton').addEventListener('click', async (e) => {
+  updateButton.addEventListener('click', async (e) => {
       e.preventDefault();
   
       const form = new FormData();
@@ -231,12 +232,19 @@ document.querySelector(`[id-output="output"]`)
       form.append('date', signature.date);
       form.append('inspector', signature.inspector);
       form.append('signatures', signatureB64);
+
+      updateButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 
+        <span>Updating...</span>`;
+
       const res = await fetch(`/Certificates/editEachPump/${PUMP_ID.pump_id}`, {
         method: 'POST',
         body: form
       });
   
       const data = await res.json();
+
+      updateButton.innerHTML = 'Updated!';
   
       if (data.success) {
         Swal.fire({

@@ -4,6 +4,39 @@ let currPage = _searchQuery.get('page') ? Number(_searchQuery.get('page')) : 1;
 getPumpRecords(currPage);
 
 async function getPumpRecords(page = 1, search = null) {
+
+    let loader = `  <tr> 
+                        <td class="text-center" colspan="7"> 
+                            <div class="spinner-grow text-primary" role="status"> 
+                            <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-secondary" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-success" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-danger" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-warning" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-info" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-light" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-dark" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </td>
+                    </tr>
+                    `;
+
+    document.getElementById('pump-items').innerHTML = loader;
+
     const tableData = document.getElementById('pump-items');
 
     const res = await fetch(`Certificates/listAllPump?page=${page}&search=${search ? search : ''}`);

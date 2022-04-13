@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
           <h5 class="card-title">Maintenance Ventilator</h5>
           <div>
-            <button type="button" class="btn btn-success " id="updateButton"><i class="bi bi-save"></i> Save</button>
+            <button type="button" class="btn btn-success " id="updateButton"><i class="bi bi-save"></i> Update</button>
           </div>
         </div>      
 

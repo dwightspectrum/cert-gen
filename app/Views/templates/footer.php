@@ -13,8 +13,20 @@
   </script>
 
   <script type="module" src="<?=base_url()?>/assets/js/whole/whole.js?v=1.0"></script>
-  <!-- Template Main JS File -->
+
+  <script src='<?=base_url()?>/assets/plugins/nprogress/nprogress.js'></script>
+
+  <script>
+    NProgress.start();
+  </script>
+
   <script src="<?=base_url()?>/assets/js/whole/main.js"></script>
+
+  <script>
+    window.addEventListener('load', (e) => {
+      NProgress.done();
+    })
+  </script>
 
 </body>
 

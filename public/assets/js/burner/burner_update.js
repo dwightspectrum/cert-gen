@@ -305,8 +305,9 @@ document.querySelector(`[id-output="output"]`)
   }
   
 
+  const updateButton = document.getElementById('updateButton');
 
-  document.getElementById('updateButton').addEventListener('click', async (e) => {
+  updateButton.addEventListener('click', async (e) => {
       e.preventDefault();
   
       const form = new FormData();
@@ -321,6 +322,9 @@ document.querySelector(`[id-output="output"]`)
       form.append('inspector', signature.inspector);
       form.append('signatures', signatureB64);
 
+      updateButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 
+        <span>Updating...</span>`;
 
       const res = await fetch(`/Certificates/editEachBurner/${BURNER_ID.burner_id}`, {
         method: 'POST',
@@ -328,6 +332,8 @@ document.querySelector(`[id-output="output"]`)
       });
   
       const data = await res.json();
+
+      updateButton.innerHTML = 'Updated!';
      
       if (data.success) {
         Swal.fire({

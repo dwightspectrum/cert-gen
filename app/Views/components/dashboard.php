@@ -62,6 +62,11 @@
       </div>
    </div>
 </div>
+<script>
+    window.addEventListener('load', (e) => {
+      NProgress.done();
+    })
+  </script>
 <style>
    .sales-card .card-icon {
    color: #4154f1;

@@ -92,7 +92,14 @@ class Certificates extends BaseController
 
     public function removeEachVentilator($ventilator_id) {
         $ventilator = new VentilatorModel();
-        $ventilator->delete(['ventilator_id' => $ventilator_id]);
+
+        $data['ventilator'] = $ventilator->find($ventilator_id);
+
+        if ($data['ventilator']['signatures'] && file_exists(FCPATH . '/assets/img/signatures/' . $data['ventilator']['signatures'])) {
+            unlink(FCPATH . '/assets/img/signatures/' . $data['ventilator']['signatures']);
+        }
+
+        $ventilator->delete($ventilator_id);
 
         echo json_encode([
             'success' => true,
@@ -232,7 +239,14 @@ class Certificates extends BaseController
 
     public function removeEachPump($pump_id) {
         $pump = new PumpModel();
-        $pump->delete(['pump_id' => $pump_id]);
+
+        $data['pump'] = $pump->find($pump_id);
+
+        if ($data['pump']['signatures'] && file_exists(FCPATH . '/assets/img/signatures/' . $data['pump']['signatures'])) {
+            unlink(FCPATH . '/assets/img/signatures/' . $data['pump']['signatures']);
+        }
+
+        $pump->delete($pump_id);
 
         echo json_encode([
             'success' => true,
@@ -370,10 +384,14 @@ class Certificates extends BaseController
 
     public function removeEachBurner($burner_id) {
         $burner = new BurnerModel();
-  
-        $burner->delete([
-            'burner_id' => $burner_id,
-        ]);
+
+        $data['burner'] = $burner->find($burner_id);
+
+        if ($data['burner']['signatures'] && file_exists(FCPATH . '/assets/img/signatures/' . $data['burner']['signatures'])) {
+            unlink(FCPATH . '/assets/img/signatures/' . $data['burner']['signatures']);
+        }
+
+        $burner->delete($burner_id);
 
         echo json_encode([
             'success' => true,
@@ -437,7 +455,7 @@ class Certificates extends BaseController
             'signatures' => $file_name,
         ];
            
-            $burner->update($burner_id, $data);
+        $burner->update($burner_id, $data);
         
         echo json_encode([
             'success' => true, 

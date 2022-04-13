@@ -25,6 +25,7 @@
   <link href="<?=base_url()?>/assets/plugins/quill/quill.bubble.css" rel="stylesheet">
   <link href="<?=base_url()?>/assets/plugins/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?=base_url()?>/assets/plugins/simple-datatables/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?=base_url()?>/assets/plugins/nprogress/nprogress.css">
   <!-- Template Main CSS File -->
   <link href="<?=base_url()?>/assets/css/style.css" rel="stylesheet">
   <!-- Vendor JS Files -->

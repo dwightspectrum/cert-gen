@@ -381,8 +381,9 @@ let frameData = {
     }  
   }    
   
-  
-  document.getElementById('saveButton').addEventListener('click', async (e) => {
+  const saveButton = document.getElementById('saveButton');
+
+  saveButton.addEventListener('click', async (e) => {
       e.preventDefault();
   
       const form = new FormData();
@@ -395,13 +396,20 @@ let frameData = {
       form.append('date', signature.date);
       form.append('inspector', signature.inspector);
       form.append('signatures', signatureB64);
+
+      saveButton.innerHTML = `
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 
+          <span>Saving...</span>`;
+           
       const res = await fetch(`/Certificates/pumpReport`, {
         method: 'POST',
         body: form
       });
   
       const data = await res.json();
-  
+
+      saveButton.innerHTML = 'Saved!';
+
       if (data.success) {
         Swal.fire({
           icon: 'success',

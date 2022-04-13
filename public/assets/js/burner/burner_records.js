@@ -4,11 +4,45 @@ let currPage = _searchQuery.get('page') ? Number(_searchQuery.get('page')) : 1;
 getBurnerRecords(currPage);
 
 async function getBurnerRecords(page = 1, search = null) {
-    const tableData = document.getElementById('burner-items');
 
+    let loader = `  <tr> 
+                        <td class="text-center" colspan="7"> 
+                            <div class="spinner-grow text-primary" role="status"> 
+                            <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-secondary" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-success" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-danger" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-warning" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-info" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-light" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-dark" role="status"> 
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </td>
+                    </tr>
+                    `;
+
+    document.getElementById('burner-items').innerHTML = loader;
+
+
+    const tableData = document.getElementById('burner-items');
     const res = await fetch(`Certificates/listAllBurner?page=${page}&search=${search ? search : ''}`);
     const data = await res.json();
 
+  
     tableData.innerHTML = data.items?.length ? data.items?.map((item, index) => {
         return (`
             <tr>

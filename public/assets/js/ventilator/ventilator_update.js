@@ -36,7 +36,7 @@ verify();
 const imageData = VENTILATOR_ID ? JSON.parse(VENTILATOR_ID.image_data) : [];
 const verifyPlaceData = VENTILATOR_ID ? JSON.parse(VENTILATOR_ID.verified_place) : [];
 const isolationsData =  VENTILATOR_ID ? JSON.parse(VENTILATOR_ID.isolation) : [];
-console.log({VENTILATOR_ID});
+
 imageData.forEach(( itemData, index ) => {
     itemData.data.forEach(( item, index2 ) => {
         const selectOkF = document.querySelector(`select[data-root-index="${index}"][data-data-index="${index2}"].okFselect`);
@@ -92,7 +92,7 @@ document.querySelector(`[id-output="output"]`)
                         </td>
                         <td>
                           <select class="form-control form-control-md okFselect" value="OK" data-root-index="${index}" data-data-index="${dataIndex}" style="cursor: pointer;" >
-                            <option value="" >Select</option>
+                            <option value="null" >Select</option>
                             <option value="OK" >OK</option>
                             <option value="Fail">Fail</option>
                           </select>
@@ -215,8 +215,9 @@ document.querySelector(`[id-output="output"]`)
     }  
   }    
   
-  
-  document.getElementById('updateButton').addEventListener('click', async (e) => {
+  const updateButton = document.getElementById('updateButton');
+
+  updateButton.addEventListener('click', async (e) => {
       e.preventDefault();
   
       const form = new FormData();
@@ -229,12 +230,19 @@ document.querySelector(`[id-output="output"]`)
       form.append('date', signature.date);
       form.append('inspector', signature.inspector);
       form.append('signatures', signatureB64);
+
+      updateButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 
+        <span>Updating...</span>`;
+
       const res = await fetch(`/Certificates/editEachVentilator/${VENTILATOR_ID.ventilator_id}`, {
         method: 'POST',
         body: form
       });
   
       const data = await res.json();
+
+      updateButton.innerHTML = 'Updated!';
   
       if (data.success) {
         Swal.fire({
